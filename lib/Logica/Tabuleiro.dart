@@ -1,5 +1,5 @@
 import 'dart:math';
-import 'package:campo_minado/CampoMinado.dart';
+import 'package:campo_minado/Logica/CampoMinado.dart';
 
 class Tabuleiro {
   //define quantas linhas, colunas e bombas o campo minado irá ter

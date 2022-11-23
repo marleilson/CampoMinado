@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
-import 'package:campo_minado/explosao_exececao.dart';
+import 'package:campo_minado/Logica/explosao_exececao.dart';
 
 class CampoMinado  {
 

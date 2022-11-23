@@ -1,4 +1,4 @@
-import 'package:campo_minado/CampoMinado.dart';
+import 'package:campo_minado/Logica/CampoMinado.dart';
 import 'package:flutter_test/flutter_test.dart'; //import que permmite realização dos testes
 
 //main nescessario para rodar o teste
