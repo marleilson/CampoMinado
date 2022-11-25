@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 
 class ResultadoWidget extends StatelessWidget implements PreferredSizeWidget {
-  //PreferradSizeWidget serva para conseguir colocar este arquivo como sendo um appbar
-  final bool venceu;
-  final Function onReiniciar;
+  final bool? venceu;
+  final Function()? onReiniciar;
 
-  ResultadoWidget({required this.venceu, required this.onReiniciar});
+  const ResultadoWidget({
+    required this.venceu,
+    required this.onReiniciar,
+    super.key,
+  });
 
   Color _getCor() {
     if (venceu == null) {
       return Colors.yellow;
-    } else if (venceu) {
+    } else if (venceu!) {
       return Colors.green;
     } else {
       return Colors.red;
@@ -20,37 +23,47 @@ class ResultadoWidget extends StatelessWidget implements PreferredSizeWidget {
   IconData _getIcon() {
     if (venceu == null) {
       return Icons.sentiment_satisfied;
-    } else if (venceu) {
+    } else if (venceu!) {
       return Icons.sentiment_very_satisfied;
     } else {
       return Icons.sentiment_very_dissatisfied;
     }
   }
 
-
-
   @override
   Widget build(BuildContext context) {
     return Container(
       color: Colors.grey,
       child: SafeArea(
-          child: Container(
-        padding: EdgeInsets.all(10),
-        child: CircleAvatar(
-          backgroundColor: _getCor(),
-          child: IconButton(
-            padding: EdgeInsets.all(0),
-              onPressed: onReiniciar(),
-              icon: Icon(_getIcon()),
-              color: Colors.black,
-            iconSize: 35,
+        child: Container(
+          color: _getCor(),
+          padding: const EdgeInsets.all(10
+          ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Icon(_getIcon(),
+                color: Colors.black,
+                size: 45,
+              ),
+              Container(
+                color: Colors.black54,
+                height: 30,
+                child: TextButton(
+                  onPressed: onReiniciar,
+                  child: const Text('REINICIAR',
+                  style: TextStyle(
+                      color: Colors.white),
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
-      )),
+      ),
     );
   }
 
   @override
-  // TODO: implement preferredSize
-  Size get preferredSize => Size.fromHeight(120);
+  Size get preferredSize => const Size.fromHeight(120);
 }
