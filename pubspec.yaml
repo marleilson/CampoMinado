@@ -74,6 +74,9 @@ flutter:
     - assets/images/fechado.jpeg
     - assets/images/bomba_0.jpeg
     - assets/images/bomba_1.jpeg
+    - assets/images/E_Espiando.png
+    - assets/images/E_Feliz.png
+    - assets/images/E_Triste.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

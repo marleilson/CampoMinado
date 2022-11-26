@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:campo_minado/Logica/CampoMinado.dart';
 
 class ResultadoWidget extends StatelessWidget implements PreferredSizeWidget {
   final bool? venceu;
@@ -20,13 +21,13 @@ class ResultadoWidget extends StatelessWidget implements PreferredSizeWidget {
     }
   }
 
-  IconData _getIcon() {
+  Widget _getEmoji(){
     if (venceu == null) {
-      return Icons.sentiment_satisfied;
+      return Image.asset('assets/images/E_Espiando.png');
     } else if (venceu!) {
-      return Icons.sentiment_very_satisfied;
+      return Image.asset('assets/images/E_Feliz.png');
     } else {
-      return Icons.sentiment_very_dissatisfied;
+      return Image.asset('assets/images/E_Triste.png');
     }
   }
 
@@ -37,23 +38,23 @@ class ResultadoWidget extends StatelessWidget implements PreferredSizeWidget {
       child: SafeArea(
         child: Container(
           color: _getCor(),
-          padding: const EdgeInsets.all(10
-          ),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(_getIcon(),
-                color: Colors.black,
-                size: 45,
+              Center(
+                child: _getEmoji()
+                  ),
+              SizedBox(
+                width: 15,
               ),
-              Container(
-                color: Colors.black54,
-                height: 30,
-                child: TextButton(
-                  onPressed: onReiniciar,
-                  child: const Text('REINICIAR',
+              TextButton(
+                onPressed: onReiniciar,
+                child: const Text('REINICIAR',
+                  textAlign: TextAlign.justify,
                   style: TextStyle(
-                      color: Colors.white),
+                    height: 2,
+                    backgroundColor: Colors.black54,
+                      color: Colors.white,
                   ),
                 ),
               ),
